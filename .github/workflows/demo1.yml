@@ -3,7 +3,18 @@ on:
   pull_request:
     types:
       - opened
+    branches:
+      - main
+      - 'dev-*' #this would cover all the branches starting with the name dev
+      - 'feat/**' # This covers all the branches that begins with the name feat for example feature-bruteMethod
   workflow_dispatch:
+  push:
+    branches:
+      - main
+      - 'dev-*' 
+      - 'feat/**' 
+    paths-ignore:
+      - '.github/workflows/*'
 jobs:
   deploy:
     runs-on: ubuntu-latest
